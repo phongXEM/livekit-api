@@ -6,6 +6,7 @@ import {
   EgressClient,
   EncodedFileOutput,
   EncodingOptionsPreset,
+  RoomServiceClient,
 } from "livekit-server-sdk";
 
 const app = express();
@@ -46,6 +47,7 @@ app.post("/token", async (req, res) => {
 });
 
 // --- EGRESS API ---
+const roomService = new RoomServiceClient(livekitHost, apiKey, apiSecret);
 const egressClient = new EgressClient(livekitHost, apiKey, apiSecret);
 
 // Start record gộp room (composite)
